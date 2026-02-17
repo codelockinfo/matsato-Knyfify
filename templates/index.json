@@ -29,7 +29,7 @@
       "name": "Matsato Sticky Banner",
       "settings": {
         "color_scheme": "scheme-937096a2-837b-4b6e-87de-3899f872bfa3",
-        "enable_sticky": true,
+        "enable_sticky": false,
         "padding_desktop": 25,
         "padding_mobile": 25,
         "logo": "shopify://shop_images/svgviewer-png-output_1.png",
