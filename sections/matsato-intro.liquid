@@ -1,0 +1,105 @@
+<section class="matsato-section color-{{ section.settings.color_scheme }} gradient">
+  <div class="matsato-container">
+    <div style="display: flex; align-items: center; gap: 50px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 300px;">
+        <h3 class="matsato-title" style="text-align: left; color: currentColor; text-transform: uppercase; font-weight: 400; margin-bottom: 30px;">
+          {{ section.settings.title }}
+        </h3>
+        <div class="matsato-content" style="margin-bottom: 30px;">
+          {{ section.settings.content }}
+        </div>
+        {% if section.settings.button_label != blank %}
+          <a href="{{ section.settings.button_link }}" class="matsato-button">{{ section.settings.button_label }}</a>
+        {% endif %}
+      </div>
+      
+      <div style="flex: 1; min-width: 300px;">
+        <div class="intro-images-wrapper">
+          <div class="matsato-intro-image">
+            <img src="{{ section.settings.image_1 | image_url: width: 600 }}" alt="{{ section.settings.title }}" style="width: 100%; height: auto; border-radius: 5px; object-fit: cover;">
+          </div>
+          <div class="matsato-intro-image">
+            <img src="{{ section.settings.image_2 | image_url: width: 600 }}" alt="{{ section.settings.title }}" style="width: 100%; height: auto; border-radius: 5px; object-fit: cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Matsato Intro",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-4"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Beautiful and unique Matsato knives are essential for every chef"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>We designed the most exceptional chef’s kitchen knife the world has ever seen. People around the world demanded a special knife with more control and balance and we delivered.</p><p>Matsato chef’s knife features a precision, laser-carved index finger hole for superior control. The blade is composed of high quality stainless steel ensuring a sharp, quality knife for the years to come.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Order Now!"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Matsato Intro"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+
+.intro-images-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.matsato-section .matsato-title{
+  font-size: 32px;
+}
+
+.matsato-section .matsato-content{
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .matsato-section .matsato-title{
+    font-size: 24px;
+  }
+  .intro-images-wrapper{
+    grid-template-columns: 1fr;
+  }
+}
+</style>

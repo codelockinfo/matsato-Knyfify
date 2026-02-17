@@ -1,0 +1,324 @@
+<section class="matsato-hero-section color-{{ section.settings.color_scheme }} gradient" style="background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}');">
+  <div class="matsato-container">
+    <div class="matsato-hero-v2__content-wrapper">
+      
+      {% comment %} Top Title {% endcomment %}
+      {% if section.settings.heading != blank %}
+        <div class="matsato-hero-v2__title-box">
+          {{ section.settings.heading }}
+        </div>
+      {% endif %}
+
+      {% comment %} Discount Badge {% endcomment %}
+      <div class="matsato-hero-v2__discount-card">
+        <span class="matsato-hero-v2__discount-label">Discount</span>
+        <h2 class="matsato-hero-v2__discount-value">{{ section.settings.discount_text }}</h2>
+      </div>
+
+      {% comment %} Promo Text {% endcomment %}
+      <div class="matsato-hero-v2__promo-lines">
+        {% if section.settings.last_chance != blank %}
+          <div class="matsato-hero-v2__last-chance">
+            {{ section.settings.last_chance }}
+          </div>
+        {% endif %}
+        
+        {% if section.settings.big_promo != blank %}
+          <div class="matsato-hero-v2__big-promo">
+            {{ section.settings.big_promo }}
+          </div>
+        {% endif %}
+      </div>
+
+      {% comment %} Button {% endcomment %}
+      {% if section.settings.button_label != blank %}
+        <div class="matsato-hero-v2__cta">
+          <a href="{{ section.settings.button_link }}" class="matsato-button matsato-button--primary matsato-hero-v2__btn">
+            {{ section.settings.button_label }}
+          </a>
+        </div>
+      {% endif %}
+
+      {% comment %} Footer Details {% endcomment %}
+      {% if section.settings.footer_info != blank %}
+        <div class="matsato-hero-v2__footer-info">
+          {{ section.settings.footer_info }}
+        </div>
+      {% endif %}
+
+    </div>
+
+    {% comment %} Secondary Product Image (Floating) {% endcomment %}
+    {% if section.settings.product_image != blank %}
+      <div class="matsato-hero-v2__product-image">
+        <img src="{{ section.settings.product_image | image_url: width: 1000 }}" 
+             alt="{{ section.settings.product_image.alt | default: 'Matsato Knife' }}"
+             style="max-width: {{ section.settings.product_image_width }}px;">
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .matsato-hero-section {
+    position: relative;
+    padding: 120px 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll !important;
+
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .matsato-hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255, 0.4); /* Light overlay for visibility */
+    z-index: 1;
+  }
+
+  .matsato-hero-v2__content-wrapper {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center for mobile, will override for desktop */
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 991px) {
+    .matsato-hero-v2__content-wrapper {
+      margin: 0;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .matsato-hero-v2__title-box p {
+      text-align: center;
+      font-size:24px;
+    }
+    .matsato-hero-v2__cta {
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+
+  /* Floating Product Image */
+  .matsato-hero-v2__product-image {
+    position: absolute;
+    right: 15%;
+    bottom: 0;
+    z-index: 6;
+    pointer-events: none;
+  }
+  .matsato-hero-v2__product-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Title Box */
+  .matsato-hero-v2__title-box {
+    margin-bottom: 30px;
+  }
+  .matsato-hero-v2__title-box p {
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+    color: #000;
+  }
+  .matsato-hero-v2__title-box strong {
+    font-weight: 900;
+    display: block;
+    text-transform: uppercase;
+  }
+
+  /* Discount Card */
+  .matsato-hero-v2__discount-card {
+    padding: 20px 60px;
+    margin-bottom: 20px;
+  }
+
+  .matsato-hero-v2__discount-label {
+    display: block;
+    font-size: 34px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 5px;
+  }
+
+  .matsato-hero-v2__discount-value {
+    font-size: 100px;
+    font-weight: 900;
+    color: #000;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+
+  /* Promo Lines */
+  .matsato-hero-v2__promo-lines {
+    margin-bottom: 30px;
+  }
+
+  .matsato-hero-v2__last-chance {
+    padding: 5px 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .matsato-hero-v2__big-promo {
+    font-size: 1.1rem;
+    padding: 2px 15px;
+    font-weight: 700;
+    color: #000;
+  }
+
+  /* CTA */
+  .matsato-hero-v2__cta {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  .matsato-hero-v2__btn {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px !important;
+    font-size: 1.2rem !important;
+    font-weight: 900 !important;
+    background: #ff9900 !important; /* Orange button from ref */
+    color: #000 !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  /* Footer Details */
+  .matsato-hero-v2__footer-info p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #000;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .matsato-hero-v2__discount-value {
+      font-size: 3.5rem;
+    }
+    .matsato-hero-v2__title-box p {
+      font-size: 1.6rem;
+    }
+    .matsato-hero-section {
+      padding: 60px 0;
+    }
+    .matsato-hero-v2__product-image {
+      position: relative;
+      right: 0;
+      margin: 40px auto 0;
+      max-width: 100%;
+      text-align: center;
+    }
+    .matsato-hero-v2__product-image img {
+      margin: 0 auto;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Matsato Hero V2",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-4"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading Text",
+      "default": "<p><strong>Matsato Knife</strong>Chef Knives That Work</p>"
+    },
+    {
+      "type": "text",
+      "id": "discount_text",
+      "label": "Discount Value",
+      "default": "-70%"
+    },
+    {
+      "type": "text",
+      "id": "last_chance",
+      "label": "Banner Line 1",
+      "default": "Last Chance"
+    },
+    {
+      "type": "text",
+      "id": "big_promo",
+      "label": "Banner Line 2",
+      "default": "Last day to Grab this BIG Promo"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "ORDER NOW - PAY UPON DELIVERY"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Footer Info"
+    },
+    {
+      "type": "richtext",
+      "id": "footer_info",
+      "label": "Footer Details",
+      "default": "<p>- Only ₹1,795 vs. ₹5,983.33 (retail)<br>- Available Online Only<br>- While supplies last</p>"
+    },
+    {
+      "type": "header",
+      "content": "Floating Product Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product Image (on stand)"
+    },
+    {
+      "type": "range",
+      "id": "product_image_width",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Product Image Width",
+      "default": 500
+    }
+  ],
+  "presets": [
+    {
+      "name": "Matsato Hero V2"
+    }
+  ]
+}
+{% endschema %}

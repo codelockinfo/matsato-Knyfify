@@ -1,0 +1,86 @@
+<section class="matsato-section" style="background-color: var(--matsato-bg-light);">
+  <div class="matsato-container">
+    <h2 class="matsato-title">{{ section.settings.title }}</h2>
+    <div class="matsato-benefits__grid">
+      {% for block in section.blocks %}
+        <div class="matsato-benefit-card">
+          <div class="matsato-benefit-card__icon">
+            {% if block.settings.icon_svg != blank %}
+              {{ block.settings.icon_svg }}
+            {% else %}
+              <span>{{ forloop.index }}</span>
+            {% endif %}
+          </div>
+          <h3 style="margin-bottom: 15px;">{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Matsato Benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Order NOW and get FREE Recipe Book!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Perfect grip"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "The handles consist of high quality Beech Wood. This is a type of hard wood with a characteristic dark texture, creating a perfect grip."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Matsato Benefits",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Perfect grip",
+            "text": "The handles consist of high quality Beech Wood."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Precisely crafted",
+            "text": "Each and every detail has been checked and taken into account."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Pleasurable in every way",
+            "text": "All Matsato knives are extremely sharp and perfectly balanced."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,182 @@
+<section class="matsato-brand-story-section matsato-section color-{{ section.settings.color_scheme }} gradient">
+  <div class="matsato-container">
+    {%- if section.settings.heading != blank -%}
+      <div class="matsato-story__main-header" style="text-align: {{ section.settings.heading_alignment }};">
+        <h2 class="matsato-title">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+
+    <div class="matsato-story__blocks">
+      {%- for block in section.blocks -%}
+        {%- capture flex_direction -%}
+          {%- cycle 'row', 'row-reverse' -%}
+        {%- endcapture -%}
+        
+        <div class="matsato-story-item" style="flex-direction: {{ flex_direction }};" {{ block.shopify_attributes }}>
+          <div class="matsato-story__image">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 800 | image_tag: 
+                loading: 'lazy',
+                class: 'matsato-story__img'
+              }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+          
+          <div class="matsato-story__text">
+            {%- if block.settings.heading != blank -%}
+              <h3 class="matsato-story__block-heading">{{ block.settings.heading }}</h3>
+            {%- endif -%}
+            {%- if block.settings.content != blank -%}
+              <div class="matsato-story__content">
+                {{ block.settings.content }}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .matsato-brand-story-section {
+    padding: 80px 0;
+  }
+
+  .matsato-story__main-header {
+    margin-bottom: 60px;
+  }
+
+  .matsato-story__blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .matsato-story-item {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .matsato-story__image,
+  .matsato-story__text {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .matsato-story__img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+  }
+
+  .matsato-story__block-heading {
+    font-size:32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color:#ff9900;
+  }
+
+  .matsato-story__content {
+    font-size: 16px;
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+
+  .matsato-story__content p {
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .matsato-story-item {
+      flex-direction: column !important; /* Stack on mobile regardless of cycle */
+      gap: 30px;
+      text-align: center;
+    }
+    
+    .matsato-story__block-heading {
+      font-size: 1.5rem;
+    }
+
+    .matsato-brand-story-section {
+      padding: 50px 0;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Matsato Brand Story",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "The Matsato Story"
+    },
+    {
+      "type": "text_alignment",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "default": "center"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "story_block",
+      "name": "Story Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Story Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Story Heading",
+          "default": "Enter Heading Here"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Story Content",
+          "default": "<p>Share your brand's story with your customers. Explain the tradition, techniques, or values that make your brand unique.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Matsato Brand Story",
+      "blocks": [
+        {
+          "type": "story_block",
+          "settings": {
+            "heading": "In love with the art of knife making",
+            "content": "<p>Matsato knives were created out of passion for the art of cooking. We wanted to revolutionise the market by being the first to ever create a specialised Kitchen Knife with a unique blade.</p><p>Traditional Japanese knife making techniques combined with modern approach resulted in this fabulous Matsato santoku knife.</p>"
+          }
+        },
+        {
+          "type": "story_block",
+          "settings": {
+            "heading": "Sharpness vs. Comfort - why not have it all?",
+            "content": "<p>Some knives are sharp, but come with the cost of being fragile and prone to chipping and oxidation.</p><p>We believe real kitchen chef should never have such problems. Matsato knife is extremely sturdy and sharp. Quality stainless steel and beech handle guarantees great performance.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

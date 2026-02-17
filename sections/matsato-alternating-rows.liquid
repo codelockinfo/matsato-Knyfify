@@ -1,0 +1,119 @@
+<section class="matsato-section color-{{ section.settings.color_scheme }} gradient">
+  <div class="matsato-container">
+    <h2 class="matsato-title" style="color: currentColor; margin-bottom: 60px;">{{ section.settings.title }}</h2>
+    
+    <div class="matsato-rows">
+      {% for block in section.blocks %}
+        <div class="matsato-row" style="display: flex; align-items: center; gap: 60px; margin-bottom: 60px; flex-wrap: wrap; {% if block.settings.reverse %}flex-direction: row-reverse;{% endif %}">
+          <div class="matsato-row__image" style="flex: 1; min-width: 300px;">
+            <img src="{{ block.settings.image | image_url: width: 1000 }}" alt="{{ block.settings.heading }}" style="width: 100%; border-radius: 5px;">
+          </div>
+          <div class="matsato-row__content" style="flex: 1; min-width: 300px;">
+            <h3 style="color: var(--matsato-accent-color); font-size: 1.8rem; font-weight: 400; margin-bottom: 25px; text-transform: uppercase;">
+              {{ block.settings.heading }}
+            </h3>
+            <div style="font-size: 1rem; line-height: 1.7; opacity: 0.8;">
+              {{ block.settings.text }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.button_label != blank %}
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="{{ section.settings.button_link }}" class="matsato-button">{{ section.settings.button_label }}</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Matsato Alternating Rows",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-4"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "When tradition meets modern design"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Order Now!"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Image & Text Row",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Row Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Techniques passed on through generations"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>We use high quality stainless steel to craft flawless, durable and beautiful knives inspired by Centuries-old Japanese knife making traditions.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "reverse",
+          "label": "Reverse Layout (Image on Right)",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Matsato Alternating Rows",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": {
+            "heading": "Techniques passed on through generations",
+            "reverse": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "heading": "In love with the art of knife making",
+            "reverse": true
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "heading": "Sharpness vs. Comfort - why not have it all?",
+            "reverse": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

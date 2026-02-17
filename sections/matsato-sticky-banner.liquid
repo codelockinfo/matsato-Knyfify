@@ -1,0 +1,277 @@
+<div id="matsato-sticky-banner-{{ section.id }}" class="matsato-sticky-banner color-{{ section.settings.color_scheme }} gradient" style="--banner-padding-desktop: {{ section.settings.padding_desktop }}px; --banner-padding-mobile: {{ section.settings.padding_mobile }}px;">
+  <div class="matsato-container">
+    <div class="matsato-sticky-banner__wrapper">
+      <div class="matsato-sticky-banner__left">
+        {% if section.settings.logo != blank %}
+          <img src="{{ section.settings.logo | image_url: height: 60 }}" alt="{{ shop.name }}" class="matsato-sticky-banner__logo">
+        {% else %}
+          <span class="matsato-sticky-banner__logo-text">{{ section.settings.logo_text | default: shop.name }}</span>
+        {% endif %}
+        
+        {% if section.settings.show_rating %}
+          <div class="matsato-sticky-banner__stars">
+            {% for i in (1..5) %}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            {% endfor %}
+            {% if section.settings.rating_text != blank %}
+              <span class="matsato-sticky-banner__rating-count">{{ section.settings.rating_text }}</span>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="matsato-sticky-banner__center">
+        {% if section.settings.banner_text != blank %}
+          <div class="matsato-sticky-banner__content">{{ section.settings.banner_text }}</div>
+        {% endif %}
+      </div>
+
+      <div class="matsato-sticky-banner__right">
+        {% if section.settings.button_label != blank %}
+          <a href="{{ section.settings.button_link }}" class="matsato-button matsato-button--small">
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  {% if section.settings.enable_sticky %}
+    #shopify-section-{{ section.id }} {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 1001;
+      width: 100%;
+      background: rgb(var(--color-background));
+    }
+
+    /* Standard offset for Dawn sticky header */
+    .shopify-section-header-sticky ~ #shopify-section-{{ section.id }},
+    #MainContent #shopify-section-{{ section.id }} {
+       top: var(--header-height, 0);
+    }
+    
+    .shopify-section-header-hidden ~ #shopify-section-{{ section.id }},
+    .shopify-section-header-hidden + #MainContent #shopify-section-{{ section.id }} {
+       top: 0;
+    }
+
+    #shopify-section-{{ section.id }}.isolate {
+      z-index: 1001;
+    }
+  {% endif %}
+
+  .matsato-sticky-banner {
+    padding: var(--banner-padding-desktop) 0;
+    border-bottom: 1px solid rgba(var(--color-foreground), 0.1);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+  
+  .matsato-sticky-banner__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .matsato-sticky-banner__left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-shrink: 0;
+  }
+  
+  .matsato-sticky-banner__logo {
+    height: auto;
+    max-height: 45px;
+    width: auto;
+  }
+  
+  .matsato-sticky-banner__logo-text {
+    font-weight: 900;
+    font-size: 2rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    font-family: var(--matsato-font-heading);
+    color: rgb(var(--color-foreground));
+  }
+  
+  .matsato-sticky-banner__stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #ffc107;
+  }
+  
+  .matsato-sticky-banner__rating-count {
+    margin-left: 8px;
+    font-size: 0.9rem;
+    color: currentColor;
+    opacity: 0.8;
+  }
+  
+  .matsato-sticky-banner__center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .matsato-sticky-banner__content {
+    font-size: 1.8rem;
+    color: currentColor;
+    font-weight: 500;
+  }
+  
+  .matsato-button--small {
+    padding: 12px 30px;
+    font-size: 1.4rem;
+    white-space: nowrap;
+    background-color: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .matsato-button--small:hover {
+    opacity: 0.9;
+  }
+  
+  @media (max-width: 989px) {
+    .matsato-sticky-banner__content {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .matsato-sticky-banner__wrapper {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+    }
+    .matsato-sticky-banner {
+      padding: var(--banner-padding-mobile) 0;
+    }
+    .matsato-sticky-banner__left {
+      gap: 15px;
+      justify-content: center;
+    }
+    .matsato-sticky-banner__stars svg {
+      width: 14px;
+      height: 14px;
+    }
+    .matsato-sticky-banner__logo-text {
+      font-size: 1.5rem;
+    }
+    .matsato-button--small {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Matsato Sticky Banner",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-4"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "label": "Enable Sticky Behavior",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_desktop",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop Vertical Padding",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_mobile",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Vertical Padding",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Logo Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text (if no image)",
+      "default": "matsato"
+    },
+    {
+      "type": "header",
+      "content": "Rating"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show Stars Rating",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating Text (optional)",
+      "placeholder": "4.9/5"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "banner_text",
+      "label": "Banner Text",
+      "default": "Beautiful and unique Matsato knives"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "ORDER NOW - PAY UPON DELIVERY"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Matsato Sticky Banner"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,284 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+
+  .matsato-reviews-v2 {
+    position: relative;
+  }
+
+  .matsato-reviews-v2__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .matsato-reviews-v2__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .matsato-reviews-v2__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .matsato-review-v2-card {
+    background-color: {{ section.settings.card_bg_color }};
+    border: 1px solid rgba(var(--color-foreground), 0.2);
+    border-radius: 8px;
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .matsato-review-v2-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .matsato-review-v2-card__name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: rgb(var(--color-foreground));
+  }
+
+  .matsato-review-v2-card__verified {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #4caf50;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .matsato-review-v2-card__verified svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  .matsato-review-v2-card__stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+    color: #ffb800;
+  }
+
+  .matsato-review-v2-card__stars svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .matsato-review-v2-card__text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: rgba(var(--color-foreground), 0.85);
+    flex-grow: 1;
+  }
+
+  .matsato-review-v2-card__image {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: auto;
+  }
+
+  .matsato-review-v2-card__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+  }
+
+  .matsato-reviews-v2__title {
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+{%- endstyle -%}
+
+<section class="matsato-reviews-v2 color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="matsato-reviews-v2__title center h1">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+
+    <div class="matsato-reviews-v2__grid">
+      {%- for block in section.blocks -%}
+        <div class="matsato-review-v2-card" {{ block.shopify_attributes }}>
+          {%- if block.settings.customer_name != blank -%}
+            <h3 class="matsato-review-v2-card__name">{{ block.settings.customer_name }}</h3>
+          {%- endif -%}
+
+          {%- if block.settings.show_verified -%}
+            <div class="matsato-review-v2-card__verified">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span>Verified Customer</span>
+            </div>
+          {%- endif -%}
+
+          <div class="matsato-review-v2-card__stars">
+            {%- for i in (1..5) -%}
+              <svg viewBox="0 0 24 24" fill="{% if i <= block.settings.rating %}currentColor{% else %}rgba(var(--color-foreground), 0.1){% endif %}">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+            {%- endfor -%}
+          </div>
+
+          {%- if block.settings.description != blank -%}
+            <div class="matsato-review-v2-card__text rte">
+              {{ block.settings.description }}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.review_image != blank -%}
+            <div class="matsato-review-v2-card__image">
+              {{ block.settings.review_image | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Matsato Reviews V2",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "CUSTOMER REVIEWS",
+      "label": "Heading"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-4"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Review Block Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Customer Name",
+          "default": "Isaac Tramyer Seyer"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_verified",
+          "label": "Show Verified Customer Tag",
+          "default": true
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Rating",
+          "default": 5
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Their knives are high quality and really good for chopping. The knife is very sharp and the price is acceptable. Their delivery time was good also. Definitely recommend them.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "review_image",
+          "label": "Review Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer Reviews V2",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
+      ]
+    }
+  ]
+}
+{% endschema %}

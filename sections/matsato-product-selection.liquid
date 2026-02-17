@@ -1,0 +1,111 @@
+<section class="matsato-section" id="order">
+  <div class="matsato-container">
+    <h2 class="matsato-title">{{ section.settings.title }}</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+      {% for block in section.blocks %}
+        <div class="matsato-benefit-card" style="border: 2px solid {% if block.settings.is_popular %}var(--matsato-accent-color){% else %}#eee{% endif %}; position: relative;">
+          {% if block.settings.is_popular %}
+            <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--matsato-accent-color); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">MOST POPULAR</div>
+          {% endif %}
+          
+          <h3 style="font-size: 1.5rem; margin-bottom: 10px;">{{ block.settings.title }}</h3>
+          <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.title }}" style="width: 100%; margin-bottom: 15px;">
+          
+          <div style="margin-bottom: 20px;">
+            <span style="font-size: 2rem; font-weight: 700;">{{ block.settings.price }}</span>
+            {% if block.settings.compare_at_price != blank %}
+              <span style="text-decoration: line-through; color: #888; margin-left: 10px;">{{ block.settings.compare_at_price }}</span>
+            {% endif %}
+          </div>
+          
+          <ul style="text-align: left; list-style: none; padding: 0; margin-bottom: 25px; font-size: 0.9rem;">
+            {% assign features = block.settings.features | split: "," %}
+            {% for feature in features %}
+              <li style="margin-bottom: 8px;">✅ {{ feature | strip }}</li>
+            {% endfor %}
+          </ul>
+          
+          <form method="post" action="/cart/add">
+            <input type="hidden" name="id" value="{{ block.settings.variant_id }}">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" class="matsato-button" style="width: 100%;">{{ section.settings.button_label }}</button>
+          </form>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Matsato Order Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Select Your Package"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Order Now!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "package",
+      "name": "Package",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Package Name",
+          "default": "1x Matsato Knife"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Package Image"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "$29.95"
+        },
+        {
+          "type": "text",
+          "id": "compare_at_price",
+          "label": "Compare at Price",
+          "default": "$59.90"
+        },
+        {
+          "type": "textarea",
+          "id": "features",
+          "label": "Features (comma separated)",
+          "default": "Premium Beech Handle, Ice-Hardened Steel, Free Recipe Book"
+        },
+        {
+          "type": "text",
+          "id": "variant_id",
+          "label": "Variant ID (Find this in your Shopify Product variants URL)",
+          "info": "Example: 45678901234567"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_popular",
+          "label": "Mark as Most Popular",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Matsato Order Section"
+    }
+  ]
+}
+{% endschema %}

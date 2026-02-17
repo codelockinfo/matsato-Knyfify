@@ -1,0 +1,256 @@
+<section class="matsato-perks-section color-{{ section.settings.color_scheme }} gradient">
+  <div class="matsato-container">
+    <div class="matsato-perks__content">
+      {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+        <div class="matsato-perks__header">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="matsato-perks__title">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.subheading != blank -%}
+            <p class="matsato-perks__subheading">{{ section.settings.subheading }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="matsato-perks__grid">
+        {%- for block in section.blocks -%}
+          <div class="matsato-perks__item" {{ block.shopify_attributes }}>
+            <div class="matsato-perks__icon-wrapper">
+              {%- if block.settings.image != blank -%}
+                <img src="{{ block.settings.image | image_url: width: 200 }}" 
+                     alt="{{ block.settings.text }}" 
+                     loading="lazy"
+                     class="matsato-perks__icon">
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+            {%- if block.settings.text != blank -%}
+              <h3 class="matsato-perks__item-text">{{ block.settings.text }}</h3>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.bottom_text != blank -%}
+        <div class="matsato-perks__footer-text">
+          {{ section.settings.bottom_text }}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link | default: '#' }}" class="matsato-perks__button">
+          {{ section.settings.button_label }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .matsato-perks-section {
+    padding: 60px 0;
+    text-align: center;
+  }
+
+  .matsato-perks__content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .matsato-perks__header {
+    margin-bottom: 20px;
+  }
+
+  .matsato-perks__title {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+    color: inherit;
+    text-transform: none;
+    line-height: 1.2;
+  }
+
+  .matsato-perks__subheading {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    color: inherit;
+    line-height: 1.3;
+  }
+
+  .matsato-perks__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .matsato-perks__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .matsato-perks__icon-wrapper {
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 15px;
+  }
+
+  .matsato-perks__icon {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .matsato-perks__item-text {
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0;
+    color: inherit;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .matsato-perks__footer-text {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    max-width: 600px;
+    color: inherit;
+  }
+
+  .matsato-perks__button {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 800;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: transform 0.2s ease;
+  }
+
+  .matsato-perks__button:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .matsato-perks-section {
+      padding: 40px 0;
+    }
+    .matsato-perks__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .matsato-perks__icon-wrapper {
+      width: 100px;
+      height: 100px;
+    }
+    .matsato-perks__title {
+      font-size: 22px;
+    }
+    .matsato-perks__subheading {
+      font-size: 18px;
+    }
+    .matsato-perks__footer-text {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .matsato-perks__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Matsato Exclusive Perks",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-4"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Thank you for choosing us!"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "In return, claim these exclusive perks today!"
+    },
+    {
+      "type": "textarea",
+      "id": "bottom_text",
+      "label": "Bottom Text",
+      "default": "Cash on delivery is an extra safe payment method, which means you will ONLY PAY FOR YOUR ORDER WHEN IT ARRIVES! We are offering this exclusive payment option only for the select group of chosen customers. Act now before this great deal expires!"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "ORDER NOW - PAY UPON DELIVERY"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "perk",
+      "name": "Perk",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Perk Text",
+          "default": "PERK TITLE"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Matsato Exclusive Perks",
+      "blocks": [
+        { "type": "perk", "settings": { "text": "EXCLUSIVE VIP DEAL" } },
+        { "type": "perk", "settings": { "text": "EXTRA-FAST ORDER PLACEMENT" } },
+        { "type": "perk", "settings": { "text": "FAST SHIPPING" } },
+        { "type": "perk", "settings": { "text": "PAY CASH ONLY ON DELIVERY!" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,547 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .matsato-review-slider {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Swiper general */
+  .matsato-review-slider .swiper {
+    width: 100%;
+    padding: 20px 0 60px;
+  }
+
+  .matsato-review-slider .swiper-slide {
+    height: auto;
+    opacity: 0.4;
+    transition: opacity 0.5s ease;
+  }
+
+  .matsato-review-slider .swiper-slide-active {
+    opacity: 1;
+  }
+
+  .review-slide-inner {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .review-grid {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+  }
+
+  /* Images Layout */
+  .review-images {
+    display: flex;
+    gap: 15px;
+    flex: 0 0 55%;
+  }
+
+  .person-img-col {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .person-img-col img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 2/3;
+  }
+
+  .extra-images-col {
+    flex: 0 0 42%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .extra-img-item {
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .extra-img-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+  }
+
+  /* Content Layout */
+  .review-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .review-logo-wrap {
+    margin-bottom: 20px;
+    max-width: 180px;
+  }
+
+  .review-logo-wrap img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .stars-row {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 25px;
+    color: #ffb800;
+  }
+
+  .stars-row svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .desc-text {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: rgba(var(--color-foreground), 0.9);
+    letter-spacing: 0.01em;
+  }
+
+  .author-info {
+    font-style: italic;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 40px;
+    opacity: 0.9;
+  }
+
+  .sponsored-partnership {
+    align-self: flex-end;
+    position: relative;
+    margin-top: auto;
+  }
+
+  .sponsored-link {
+    font-style: italic;
+    font-size: 1.4rem;
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgba(var(--color-foreground), 0.7);
+    transition: color 0.3s;
+    white-space: nowrap;
+  }
+
+  .sponsored-link:hover {
+    color: rgba(var(--color-foreground), 1);
+  }
+
+  .sponsored-popover {
+    position: absolute;
+    bottom: calc(100% + 15px);
+    right: 0;
+    width: 300px;
+    background: rgb(var(--color-background));
+    border: 1px solid rgba(var(--color-foreground), 0.1);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+    padding: 20px;
+    border-radius: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    font-style: normal;
+  }
+
+  .sponsored-popover::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 30px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: rgb(var(--color-background)) transparent transparent transparent;
+  }
+
+  .sponsored-partnership:hover .sponsored-popover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Navigation */
+  .matsato-review-slider .swiper-button-next,
+  .matsato-review-slider .swiper-button-prev {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: rgba(var(--color-foreground), 0.2);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .matsato-review-slider .swiper-button-next:hover,
+  .matsato-review-slider .swiper-button-prev:hover {
+    background: rgba(var(--color-foreground), 0.4);
+    transform: scale(1.1);
+  }
+
+  .matsato-review-slider .swiper-button-next:after,
+  .matsato-review-slider .swiper-button-prev:after {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    position: static;
+  }
+
+  .matsato-review-slider .swiper-button-prev {
+    left: 10px;
+  }
+
+  .matsato-review-slider .swiper-button-next {
+    right: 10px;
+  }
+
+
+  /* Mobile Styles - Matching image 1 */
+  @media screen and (max-width: 989px) {
+    .review-grid {
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .review-images {
+      flex: 1;
+      width: 100%;
+    }
+
+    .extra-images-col {
+      display: none; /* Reference image 1 shows just the main person image */
+    }
+
+    .person-img-col img {
+      aspect-ratio: 4/5;
+    }
+
+    .review-content {
+      padding-left: 0;
+      width: 100%;
+    }
+
+    .desc-text {
+      font-size: 1.6rem;
+    }
+
+    .author-info {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+     .review-logo-wrap {
+       max-width: 140px;
+     }
+
+     .desc-text {
+       font-size: 1.5rem;
+     }
+
+     .sponsored-partnership {
+        align-self: flex-start;
+        width: 100%;
+        text-align: right;
+     }
+     
+     .sponsored-popover {
+        width: calc(100vw - 40px);
+        right: 0;
+     }
+  }
+{%- endstyle -%}
+
+{%- comment -%}
+  Only load Swiper once globally if possible, but for this standalone section:
+{%- endcomment -%}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<div class="matsato-review-slider color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="review-slide-inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="title inline-richtext h1" style="text-align: {{ section.settings.heading_alignment }}; margin-bottom: 40px;">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+
+    <div class="swiper swiper-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+          <div class="swiper-slide" {{ block.shopify_attributes }}>
+            <div class="review-grid">
+              
+              <div class="review-images">
+                <div class="person-img-col">
+                  {%- if block.settings.person_image != blank -%}
+                    <picture>
+                      {%- if block.settings.person_image_mobile != blank -%}
+                        <source media="(max-width: 989px)" srcset="{{ block.settings.person_image_mobile | image_url: width: 1000 }}">
+                      {%- endif -%}
+                      <img src="{{ block.settings.person_image | image_url: width: 1200 }}" 
+                           alt="{{ block.settings.person_image.alt | default: block.settings.author_name }}" 
+                           loading="lazy">
+                    </picture>
+                  {%- else -%}
+                    <div class="placeholder-svg-wrap">
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    </div>
+                  {%- endif -%}
+                </div>
+
+                <div class="extra-images-col">
+                  {%- if block.settings.knife_image_1 != blank -%}
+                    <div class="extra-img-item">
+                      <img src="{{ block.settings.knife_image_1 | image_url: width: 600 }}" loading="lazy">
+                    </div>
+                  {%- endif -%}
+                  {%- if block.settings.knife_image_2 != blank -%}
+                    <div class="extra-img-item">
+                      <img src="{{ block.settings.knife_image_2 | image_url: width: 600 }}" loading="lazy">
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+
+              <div class="review-content">
+                {%- if block.settings.logo_image != blank -%}
+                  <div class="review-logo-wrap">
+                    <img src="{{ block.settings.logo_image | image_url: width: 400 }}" loading="lazy">
+                  </div>
+                {%- endif -%}
+
+                <div class="stars-row">
+                  {%- assign rating_val = block.settings.rating | floor -%}
+                  {%- for i in (1..5) -%}
+                    <svg viewBox="0 0 24 24" fill="{% if i <= rating_val %}currentColor{% else %}rgba(var(--color-foreground), 0.1){% endif %}">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  {%- endfor -%}
+                </div>
+
+                <div class="desc-text rte">
+                  {{ block.settings.description }}
+                </div>
+
+                <div class="author-info">
+                  - {{ block.settings.author_name }}
+                </div>
+
+                {%- if block.settings.sponsored_text != blank -%}
+                  <div class="sponsored-partnership">
+                    <span class="sponsored-link">{{ block.settings.sponsored_text }}</span>
+                    {%- if block.settings.sponsored_hover_content != blank -%}
+                      <div class="sponsored-popover rte">
+                        {{ block.settings.sponsored_hover_content }}
+                      </div>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              </div>
+
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+      
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    function initSwiper() {
+      if (typeof Swiper !== 'undefined') {
+        new Swiper('.swiper-{{ section.id }}', {
+          slidesPerView: 1,
+          spaceBetween: 40,
+          loop: true,
+          centeredSlides: true,
+          grabCursor: true,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          effect: 'slide',
+          speed: 800,
+          breakpoints: {
+            990: {
+              spaceBetween: 60
+            }
+          }
+        });
+      } else {
+        setTimeout(initSwiper, 50);
+      }
+    }
+    initSwiper();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Matsato Review Slider",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Professional Chefs Say"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "person_image",
+          "label": "Person Image (Desktop)"
+        },
+        {
+          "type": "image_picker",
+          "id": "person_image_mobile",
+          "label": "Person Image (Mobile)"
+        },
+        {
+          "type": "image_picker",
+          "id": "knife_image_1",
+          "label": "Knife Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "knife_image_2",
+          "label": "Knife Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_image",
+          "label": "Logo Image"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Rating",
+          "default": 5
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>I found it aesthetically pleasing and extremely durable. The blade has a good curve, allowing you to rest your middle finger on it comfortably. Chopping all manner of vegetables and meat was easy. If you're looking for a reasonably priced chef's knife get Matsato Japan.</p>"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name / Title",
+          "default": "Bernard Descoteaux, Head Chef"
+        },
+        {
+          "type": "text",
+          "id": "sponsored_text",
+          "label": "Sponsored Text",
+          "default": "* Sponsored partnership:"
+        },
+        {
+          "type": "richtext",
+          "id": "sponsored_hover_content",
+          "label": "Sponsored Hover Content",
+          "default": "<p>Matsato partners with professional chefs to test and review our products. This review reflects the genuine professional opinion of the chef after testing our equipment in a professional kitchen environment.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Matsato Review Slider",
+      "blocks": [
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

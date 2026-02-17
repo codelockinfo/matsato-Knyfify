@@ -1,0 +1,213 @@
+<section id="MatsatoIceHardening-{{ section.id }}" class="matsato-ice-hardening matsato-section color-{{ section.settings.color_scheme }} gradient">
+  {%- if section.settings.background_image != blank -%}
+    <div class="matsato-ice-hardening__bg-overlay" style="opacity: {{ section.settings.background_overlay_opacity | divided_by: 100.0 }};"></div>
+  {%- endif -%}
+  
+  <div class="matsato-container" style="position: relative; z-index: 2;">
+    {% comment %} Centered Header {% endcomment %}
+    <div class="matsato-ice-hardening__header">
+      <h2 class="matsato-title">{{ section.settings.title }}</h2>
+      <div class="matsato-ice-hardening__divider">
+        <span>*</span>
+      </div>
+    </div>
+
+    <div class="matsato-ice-hardening__main-content">
+      {% comment %} Feature List (Left) {% endcomment %}
+      <div class="matsato-ice-hardening__features">
+        <div class="matsato-feature-item">
+          <h4 class="matsato-feature-title">Proven wear resistance</h4>
+          <p class="matsato-feature-text">We cool Matsato knife steel below -148°F to form martensite, enhancing strength and wear resistance for extreme durability.</p>
+        </div>
+        
+        <div class="matsato-feature-item">
+          <h4 class="matsato-feature-title">Improved stability and cutting experience</h4>
+          <p class="matsato-feature-text">Our professional treatment for Matsato knives minimizes residual stresses, enhancing the blade's overall stability.</p>
+        </div>
+
+        <div class="matsato-feature-item">
+          <h4 class="matsato-feature-title">Enhanced blade sharpness</h4>
+          <p class="matsato-feature-text">Ice-hardening technology helps the blade retain its sharpness longer, reducing the need for frequent sharpening.</p>
+        </div>
+      </div>
+
+      {% comment %} Product Image (Right) {% endcomment %}
+      <div class="matsato-ice-hardening__image">
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url: width: 1000 }}" alt="{{ section.settings.title }}">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #MatsatoIceHardening-{{ section.id }} {
+    position: relative;
+    {% if section.settings.background_image != blank %}
+      background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: scroll !important;
+    {% endif %}
+    padding: 100px 0;
+    color: #fff;
+  }
+
+  .matsato-ice-hardening__header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+  }
+
+  .matsato-ice-hardening__header .matsato-title {
+    font-size:40px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-transform: none;
+  }
+
+  .matsato-ice-hardening__divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0.5;
+  }
+
+  .matsato-ice-hardening__divider::before,
+  .matsato-ice-hardening__divider::after {
+    content: '';
+    height: 1px;
+    background: #fff;
+    width:100%;
+  }
+
+  .matsato-ice-hardening__divider span {
+    font-size: 24px;
+    color: #fff;
+  }
+
+  .matsato-ice-hardening__main-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+
+  .matsato-ice-hardening__features {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .matsato-ice-hardening__image {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .matsato-ice-hardening__image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+
+  .matsato-feature-title {
+    color: #FF9900;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    margin-top: 0;
+  }
+
+  .matsato-feature-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #eee;
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 991px) {
+    .matsato-ice-hardening__main-content {
+      flex-direction: column-reverse;
+      gap: 40px;
+    }
+    .matsato-ice-hardening__header .matsato-title {
+      font-size: 2rem;
+    }
+    .matsato-ice-hardening__features {
+      text-align: center;
+    }
+  
+  }
+
+  .matsato-ice-hardening__bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000; /* Darker overlay for this section specifically */
+    z-index: 1;
+    pointer-events: none;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Matsato Ice Hardening",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-4"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Front Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "background_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Background White Overlay",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Forget Dull Knives. Get a Matsato Knife with Ice-Hardening"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>Ice-hardening technology helps the blade retain its sharpness longer, reducing the need for frequent sharpening. Our professional treatment minimizes residual stresses.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Matsato Ice Hardening"
+    }
+  ]
+}
+{% endschema %}
