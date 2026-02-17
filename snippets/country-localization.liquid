@@ -34,11 +34,26 @@
     aria-describedby="{{ localPosition }}Label"
   >
     <span>
-      {{- localization.country.name }} |
-      {{ localization.country.currency.iso_code }}
-      {{ localization.country.currency.symbol -}}
+      {%- if section.settings.show_country_flag -%}
+        {%- if section.settings.country_flag_image != blank -%}
+          <img
+            src="{{ section.settings.country_flag_image | image_url: width: 40 }}"
+            alt="{{ localization.country.name }}"
+            width="20"
+            height="15"
+            style="vertical-align: middle; border: 1px solid #e8e8e8;"
+          >
+        {%- else -%}
+          <img
+            src="https://flagcdn.com/w40/{{ localization.country.iso_code | downcase }}.png"
+            alt="{{ localization.country.name }}"
+            width="20"
+            height="15"
+            style="vertical-align: middle; border: 1px solid #e8e8e8;"
+          >
+        {%- endif -%}
+      {%- endif -%}
     </span>
-    {{ 'icon-caret.svg' | inline_asset_content }}
   </button>
   <div class="disclosure__list-wrapper country-selector" hidden>
     <div class="country-filter{% unless show_country_filter %} country-filter--no-padding{% endunless %}">
@@ -111,6 +126,27 @@
                 >
                   {{- 'icon-checkmark.svg' | inline_asset_content -}}
                 </span>
+                {%- if section.settings.show_country_flag -%}
+                  {%- if section.settings.country_flag_image != blank -%}
+                    <img
+                      src="{{ section.settings.country_flag_image | image_url: width: 40 }}"
+                      alt="{{ country.name }}"
+                      width="20"
+                      height="15"
+                      style="vertical-align: middle; margin-right: 10px; border: 1px solid #e8e8e8;"
+                      loading="lazy"
+                    >
+                  {%- else -%}
+                    <img
+                      src="https://flagcdn.com/w40/{{ country.iso_code | downcase }}.png"
+                      alt="{{ country.name }}"
+                      width="20"
+                      height="15"
+                      style="vertical-align: middle; margin-right: 10px; border: 1px solid #e8e8e8;"
+                      loading="lazy"
+                    >
+                  {%- endif -%}
+                {%- endif -%}
                 <span class="country">{{- country.name }}</span>
                 <span class="localization-form__currency motion-reduce{% unless show_currencies %} hidden{% endunless %}">
                   {{ country.currency.iso_code }}
@@ -140,6 +176,27 @@
               >
                 {{- 'icon-checkmark.svg' | inline_asset_content -}}
               </span>
+              {%- if section.settings.show_country_flag -%}
+                {%- if section.settings.country_flag_image != blank -%}
+                  <img
+                    src="{{ section.settings.country_flag_image | image_url: width: 40 }}"
+                    alt="{{ country.name }}"
+                    width="20"
+                    height="15"
+                    style="vertical-align: middle; margin-right: 10px; border: 1px solid #e8e8e8;"
+                    loading="lazy"
+                  >
+                {%- else -%}
+                  <img
+                    src="https://flagcdn.com/w40/{{ country.iso_code | downcase }}.png"
+                    alt="{{ country.name }}"
+                    width="20"
+                    height="15"
+                    style="vertical-align: middle; margin-right: 10px; border: 1px solid #e8e8e8;"
+                    loading="lazy"
+                  >
+                {%- endif -%}
+              {%- endif -%}
               <span class="country">{{- country.name }}</span>
               <span class="localization-form__currency motion-reduce{% unless show_currencies %} hidden{% endunless %}">
                 {{ country.currency.iso_code }}

@@ -33,6 +33,11 @@
                 {{ block.settings.content }}
               </div>
             {%- endif -%}
+            {%- if block.settings.button_label != blank -%}
+              <div class="matsato-story__button">
+                <a href="{{ block.settings.button_link }}" class="button button--primary">{{ block.settings.button_label }}</a>
+              </div>
+            {%- endif -%}
           </div>
         </div>
       {%- endfor -%}
@@ -42,9 +47,12 @@
 
 <style>
   .matsato-brand-story-section {
-    padding: 80px 0;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
   }
-
+.matsato-brand-story-section .matsato-title{
+  font-size: 40px;
+}
   .matsato-story__main-header {
     margin-bottom: 60px;
   }
@@ -52,31 +60,28 @@
   .matsato-story__blocks {
     display: flex;
     flex-direction: column;
-    gap: 80px;
   }
 
   .matsato-story-item {
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 40px;
   }
 
   .matsato-story__image,
   .matsato-story__text {
     flex: 1;
-    min-width: 300px;
   }
 
   .matsato-story__img {
     width: 100%;
     height: auto;
-    border-radius: 12px;
     display: block;
   }
 
   .matsato-story__block-heading {
     font-size:32px;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 20px;
     color:#ff9900;
   }
@@ -91,19 +96,35 @@
     margin-bottom: 1.5rem;
   }
 
+  .matsato-story__button {
+    margin-top: 30px;
+  }
+
+  .matsato-story__button .button {
+    text-decoration: none;
+    font-weight: 700;
+  }
+
   @media (max-width: 768px) {
+    .matsato-brand-story-section .matsato-title{
+      font-size: 32px;
+    }
     .matsato-story-item {
       flex-direction: column !important; /* Stack on mobile regardless of cycle */
-      gap: 30px;
+      gap: 20px;
       text-align: center;
     }
     
     .matsato-story__block-heading {
-      font-size: 1.5rem;
+      font-size: 24px;
+      text-align: left;
     }
-
+.matsato-story__content{
+  text-align: left;
+}
     .matsato-brand-story-section {
-      padding: 50px 0;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
     }
   }
 </style>
@@ -130,6 +151,34 @@
       "id": "heading_alignment",
       "label": "Heading alignment",
       "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "default": 40
     }
   ],
   "blocks": [
@@ -153,6 +202,16 @@
           "id": "content",
           "label": "Story Content",
           "default": "<p>Share your brand's story with your customers. Explain the tradition, techniques, or values that make your brand unique.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
         }
       ]
     }

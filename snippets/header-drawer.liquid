@@ -136,7 +136,7 @@
             </ul>
           </nav>
           <div class="menu-drawer__utility-links">
-            {%- if shop.customer_accounts_enabled -%}
+            {%- if shop.customer_accounts_enabled and section.settings.show_account -%}
               <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
                 class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide"
@@ -168,7 +168,7 @@
             {%- endif -%}
             {%- if localization.available_countries or localization.available_languages -%}
               <div class="menu-drawer__localization header-localization">
-                {%- if localization.available_countries and localization.available_countries.size > 1 -%}
+                {%- if section.settings.enable_country_selector -%}
                   <localization-form>
                     {%- form 'localization', id: 'HeaderCountryMobileForm', class: 'localization-form' -%}
                       <div>

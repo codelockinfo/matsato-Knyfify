@@ -51,14 +51,15 @@
       background-repeat: no-repeat;
       background-attachment: scroll !important;
     {% endif %}
-    padding: 100px 0;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
     color: #fff;
   }
 
   .matsato-ice-hardening__header {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 30px auto;
   }
 
   .matsato-ice-hardening__header .matsato-title {
@@ -100,7 +101,8 @@
 
   .matsato-ice-hardening__features {
     flex: 1;
-    min-width: 300px;
+    width:100%;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -123,7 +125,7 @@
     color: #FF9900;
     font-size: 24px;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     margin-top: 0;
   }
 
@@ -136,15 +138,26 @@
   }
 
   @media (max-width: 991px) {
+    #MatsatoIceHardening-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
     .matsato-ice-hardening__main-content {
       flex-direction: column-reverse;
       gap: 40px;
     }
     .matsato-ice-hardening__header .matsato-title {
-      font-size: 2rem;
+      font-size: 32px;
     }
     .matsato-ice-hardening__features {
       text-align: center;
+    }
+    .matsato-feature-title{
+      text-align:left;
+      font-size:16px;
+    }
+    .matsato-feature-text{
+      text-align:left;
     }
   
   }
@@ -202,6 +215,34 @@
       "id": "content",
       "label": "Content",
       "default": "<p>Ice-hardening technology helps the blade retain its sharpness longer, reducing the need for frequent sharpening. Our professional treatment minimizes residual stresses.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "default": 48
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "default": 48
     }
   ],
   "presets": [
