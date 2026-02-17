@@ -25,6 +25,13 @@
         "enable_country_selector": true,
         "enable_language_selector": false,
         "enable_customer_avatar": false,
+        "show_search": false,
+        "show_cart": false,
+        "show_account": false,
+        "menu_alignment": "right",
+        "drawer_menu_alignment": "left",
+        "show_country_flag": true,
+        "country_flag_image": "shopify://shop_images/svgviewer-png-output_dfbbb191-c9b7-413c-88ea-1c4746bbe7e5.png",
         "margin_bottom": 0,
         "padding_top": 20,
         "padding_bottom": 20
