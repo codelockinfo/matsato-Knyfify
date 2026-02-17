@@ -60,7 +60,7 @@
         "color_scheme": "scheme-5",
         "enable_sticky": true,
         "padding_desktop": 27,
-        "padding_mobile": 28,
+        "padding_mobile": 8,
         "logo": "shopify://shop_images/svgviewer-png-output.png",
         "logo_text": "",
         "show_rating": true,
