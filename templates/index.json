@@ -121,7 +121,11 @@
       "name": "Matsato Product Features",
       "settings": {
         "color_scheme": "",
-        "image": "shopify://shop_images/properties-knife.avif"
+        "image": "shopify://shop_images/properties-knife.avif",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56
       }
     },
     "matsato_ice_hardening_Att89J": {
@@ -133,7 +137,11 @@
         "background_image": "shopify://shop_images/bg1.jpg",
         "background_overlay_opacity": 0,
         "title": "Forget Dull Knives. Get a Matsato Knife with Ice-Hardening",
-        "content": "<p>Ice-hardening technology helps the blade retain its sharpness longer, reducing the need for frequent sharpening. Our professional treatment minimizes residual stresses.</p>"
+        "content": "<p>Ice-hardening technology helps the blade retain its sharpness longer, reducing the need for frequent sharpening. Our professional treatment minimizes residual stresses.</p>",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
       }
     },
     "image_banner_Xn3mRg": {
@@ -250,7 +258,9 @@
           "settings": {
             "image": "shopify://shop_images/s1.avif",
             "heading": "Techniques passed onthrough generations",
-            "content": "<p>We use high quality stainless steel to craft flawless, durable and beautiful knives inspired by Centuries-old Japanese knife making traditions.</p><p>Each Matsato knife is carefully crafted using a 138-step design and goes through rigorous testing before every shipment.</p>"
+            "content": "<p>We use high quality stainless steel to craft flawless, durable and beautiful knives inspired by Centuries-old Japanese knife making traditions.</p><p>Each Matsato knife is carefully crafted using a 138-step design and goes through rigorous testing before every shipment.</p>",
+            "button_label": "",
+            "button_link": ""
           }
         },
         "story_block_yLETY3": {
@@ -258,7 +268,9 @@
           "settings": {
             "image": "shopify://shop_images/s2.avif",
             "heading": "In love with the artof knife making",
-            "content": "<p>Matsato knives were created out of passion for the art of cooking. We wanted to revolutionise the market by being the first to ever create a specialised Kitchen Knife with a unique blade.</p><p>Traditional Japanese knife making techniques combined with modern approach resulted in this fabulous Matsato santoku knife.</p>"
+            "content": "<p>Matsato knives were created out of passion for the art of cooking. We wanted to revolutionise the market by being the first to ever create a specialised Kitchen Knife with a unique blade.</p><p>Traditional Japanese knife making techniques combined with modern approach resulted in this fabulous Matsato santoku knife.</p>",
+            "button_label": "",
+            "button_link": ""
           }
         },
         "story_block_3AFzPQ": {
@@ -266,7 +278,9 @@
           "settings": {
             "image": "shopify://shop_images/s3.avif",
             "heading": "Sharpness vs. Comfort- why not have it all?",
-            "content": "<p>Some knives are sharp, but comes with the cost of being fragile and prone to chipping and oxidation.</p><p>We believe real kitchen chef should never have such problems. Matsato knife is extremely sturdy and sharp. Quality stainless steel and beech handle guarantees great performance.</p>"
+            "content": "<p>Some knives are sharp, but comes with the cost of being fragile and prone to chipping and oxidation.</p><p>We believe real kitchen chef should never have such problems. Matsato knife is extremely sturdy and sharp. Quality stainless steel and beech handle guarantees great performance.</p>",
+            "button_label": "",
+            "button_link": ""
           }
         }
       },
@@ -279,7 +293,11 @@
       "settings": {
         "color_scheme": "scheme-5",
         "heading": "When tradition meets modern design",
-        "heading_alignment": "center"
+        "heading_alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
       }
     },
     "matsato_review_slider_6hdEmr": {
@@ -428,6 +446,24 @@
         "padding_bottom_mobile": 40
       }
     },
+    "matsato_promo_banner_z3FTTP": {
+      "type": "matsato-promo-banner",
+      "name": "Matsato Promo Banner",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "background_image": "shopify://shop_images/bg.jpg",
+        "video": "shopify://files/videos/4c0a9a11c75f489b899b935583b32ac8.webm",
+        "subheading": "",
+        "heading": "Order <strong>NOW</strong> and get <strong>FREE Recipe Book!</strong>",
+        "button_label": "",
+        "button_link": "",
+        "gift_label": "GIFT",
+        "gift_bg_color": "#00a2ff"
+      }
+    },
     "rich_text_m4xcHH": {
       "type": "rich-text",
       "blocks": {
@@ -478,6 +514,7 @@
     "matsato_brand_story_fFM4qr",
     "matsato_review_slider_6hdEmr",
     "matsato_reviews_WJGnNJ",
+    "matsato_promo_banner_z3FTTP",
     "rich_text_m4xcHH"
   ]
 }
