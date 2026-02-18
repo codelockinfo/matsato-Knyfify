@@ -55,6 +55,7 @@
 
 @media screen and (max-width: 749px) {
   .footer__blocks-wrapper.grid--1-col-mobile {
+    grid-template-columns: repeat(1, 1fr);
     display: flex;
     flex-direction: column;
     gap: 3rem;
