@@ -3,11 +3,10 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
     position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
-    min-height: 220px;
     background-color: #1a1a1a;
+    min-height: 140px;
     {% if section.settings.background_image != blank %}
       background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');
       background-size: cover;
@@ -28,189 +27,128 @@
 
   .matsato-promo-banner__container {
     position: relative;
-    z-index: 2;
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
   }
 
   .matsato-promo-banner__grid {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 0;
   }
 
-  /* LEFT: Fire Video */
+  /* LEFT: Decorative Video (Fire) */
   .matsato-promo-banner__left {
-    flex: 0 0 25%;
-    max-width: 300px;
+    flex: 0 0 14%;
+    position: relative;
     display: flex;
     align-items: center;
+    pointer-events: none;
   }
   .matsato-promo-banner__video-wrap {
     width: 100%;
     position: relative;
+    overflow: visible;
   }
   .matsato-promo-banner__video-wrap video,
   .matsato-promo-banner__video-wrap iframe {
-    width: 100%;
+    width: 180%;
     height: auto;
     display: block;
-    mix-blend-mode: screen; /* Essential: This hides the black background of the fire video */
-    filter: contrast(1.1) brightness(1.2);
+    mix-blend-mode: screen; /* This removes the black background from the video */
+    filter: brightness(1.2) contrast(1.1);
+    margin-left: -40%;
   }
 
-  /* CENTER: Text */
+  /* CENTER: Content */
   .matsato-promo-banner__center {
-    flex: 1;
+       flex: 0 0 42%;
     text-align: center;
-    color: #ffffff;
-    max-width: 600px;
   }
   .matsato-promo-banner__subheading {
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
+    font-size: 1.6rem;
     font-weight: 500;
+    margin: 0;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
   }
   .matsato-promo-banner__heading {
-    font-size: 3rem;
-    line-height: 1.1;
-    margin: 0;
-    font-weight: 400;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    margin: 4px 0 0;
+    padding: 0;
+    color: #ffffff;
   }
-  .matsato-promo-banner__heading strong,
-  .matsato-promo-banner__heading b {
-    font-weight: 900;
-    text-transform: uppercase;
-  }
-  .matsato-promo-banner__cta {
-    margin-top: 25px;
-  }
-  .matsato-promo-banner__cta .button {
-    padding: 15px 40px;
-    font-size: 1.2rem;
+  .matsato-promo-banner__heading .top-line {
+    display: block;
+    font-size: 2.2rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1px;
   }
-
-  /* RIGHT: Book + Tag */
-  .matsato-promo-banner__right {
-    flex: 0 0 35%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-  .matsato-promo-banner__visual-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  .matsato-promo-banner__book-img {
-    max-width: 100%;
-    height: auto;
+  .matsato-promo-banner__heading .bottom-line {
     display: block;
-    z-index: 1;
-    filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.4));
-  }
-
-  /* Premium Skewed Gift Tag (Desktop) */
-  .matsato-promo-banner__gift-desktop {
-    position: absolute;
-    left: -40px;
-    top: 50%;
-    transform: translateY(-50%) skewX(-15deg);
-    background: {{ section.settings.gift_bg_color | default: '#00a2ff' }};
-    padding: 20px 15px;
-    color: #fff;
-    text-align: center;
-    z-index: 3;
-    box-shadow: 15px 15px 40px rgba(0,0,0,0.4);
-    min-width: 100px;
-  }
-  .matsato-promo-banner__gift-desktop > * {
-    transform: skewX(15deg);
-  }
-  .matsato-promo-banner__gift-desktop span {
-    display: block;
+    font-size: 2.8rem;
     font-weight: 900;
-    font-size: 1.3rem;
-    margin-top: 5px;
     text-transform: uppercase;
+    letter-spacing: -0.5px;
+  }
+  
+  .matsato-promo-banner__cta {
+    margin-top: 12px;
+  }
+  .matsato-promo-banner__cta .button {
+    padding: 8px 30px;
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    background: #ff9900;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    min-width: 150px;
   }
 
-  /* Mobile adjustments */
-  @media screen and (max-width: 749px) {
+  /* RIGHT: Visual (The complete blue image with book) */
+ 
+  
+  .matsato-promo-banner__inner-img {
+    height: 100%;
+    margin-left: -15%;
+  }
+
+  /* Mobile: Single column stack */
+  @media screen and (max-width: 767px) {
+
     .matsato-promo-banner__grid {
       flex-direction: column;
-      align-items: center;
-      gap: 20px;
+      gap: 30px;
+      padding:30px 0 0 0 ;
+     
     }
     .matsato-promo-banner__left {
-      display: none; /* Injected into mobile overlay below */
+           height:280px;
     }
+
     .matsato-promo-banner__center {
-      order: 1;
-      width: 100%;
-    }
-    .matsato-promo-banner__heading {
-      font-size: 1.8rem;
-    }
-    
-    .matsato-promo-banner__mobile-gift-row {
-      order: 2;
-      display: flex;
-      justify-content: center;
-      z-index: 5;
-    }
-    .gift-circle-mobile {
-      width: 60px;
-      height: 60px;
-      background: {{ section.settings.gift_bg_color | default: '#00a2ff' }};
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-
-    .matsato-promo-banner__right {
-      order: 3;
-      width: 100%;
-      justify-content: center;
-      margin-top: 10px;
-    }
-    .matsato-promo-banner__gift-desktop {
-      display: none;
-    }
-    
-    .mobile-visual-video {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -45%);
-      width: 90%;
-      z-index: 2;
-      pointer-events: none;
-    }
-    .mobile-visual-video video, 
-    .mobile-visual-video iframe {
-      mix-blend-mode: screen;
-      width: 100%;
-    }
-  }
 
-  @media screen and (min-width: 750px) {
-    .matsato-promo-banner__mobile-gift-row,
-    .mobile-visual-video {
-      display: none;
+    }
+    .matsato-promo-banner__right {
+    display:none;
+    }
+    .matsato-promo-banner__skew-box {
+        width: 100%;
+        transform: skewX(0);
+    }
+    .matsato-promo-banner__inner-img {
+        transform: skewX(0);
+        width: 100%;
+        margin-left: 0;
+    }
+    .matsato-promo-banner__heading .bottom-line {
+        font-size: 2.2rem;
     }
   }
 </style>
@@ -219,9 +157,9 @@
   <div class="matsato-promo-banner__container">
     <div class="matsato-promo-banner__grid">
       
-      <!-- LEFT: Video (Desktop) -->
-      {%- if section.settings.video != blank or section.settings.video_url != blank -%}
-        <div class="matsato-promo-banner__left">
+      <!-- LEFT: Fire Video -->
+      <div class="matsato-promo-banner__left">
+        {%- if section.settings.video != blank or section.settings.video_url != blank -%}
           <div class="matsato-promo-banner__video-wrap">
             {%- if section.settings.video != blank -%}
               {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true }}
@@ -229,17 +167,20 @@
               <iframe src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?autoplay=1&loop=1&mute=1&controls=0&playlist={{ section.settings.video_url.id }}&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             {%- endif -%}
           </div>
-        </div>
-      {%- endif -%}
+        {%- endif -%}
+      </div>
 
-      <!-- CENTER: Content -->
+      <!-- CENTER: Text -->
       <div class="matsato-promo-banner__center">
         {%- if section.settings.subheading != blank -%}
-          <div class="matsato-promo-banner__subheading">{{ section.settings.subheading }}</div>
+          <p class="matsato-promo-banner__subheading">{{ section.settings.subheading }}</p>
         {%- endif -%}
-        {%- if section.settings.heading != blank -%}
-          <h2 class="matsato-promo-banner__heading">{{ section.settings.heading }}</h2>
-        {%- endif -%}
+        
+        <h2 class="matsato-promo-banner__heading">
+           <span class="top-line">NOW and get</span>
+           <span class="bottom-line">FREE RECIPE BOOK!</span>
+        </h2>
+
         {%- if section.settings.button_label != blank -%}
           <div class="matsato-promo-banner__cta">
             <a href="{{ section.settings.button_link }}" class="button">
@@ -249,42 +190,21 @@
         {%- endif -%}
       </div>
 
-      <!-- MOBILE ONLY: Gift Circle -->
-      <div class="matsato-promo-banner__mobile-gift-row">
-        <div class="gift-circle-mobile">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4"/><path d="M12 8V22"/><path d="M19 12V22H5V12"/><path d="M7.5 8H16.5C18.5 8 19 6.5 19 5C19 3.5 17.5 2 16 2C14.5 2 13 3.5 12 5C11 3.5 9.5 2 8 2C6.5 2 5 3.5 5 5C5 6.5 5.5 8 7.5 8Z"/></svg>
-        </div>
-      </div>
-
-      <!-- RIGHT: Visuals -->
-      {%- if section.settings.right_image != blank -%}
-        <div class="matsato-promo-banner__right">
-          <div class="matsato-promo-banner__visual-container">
-            <!-- Desktop Skewed Tag -->
-            <div class="matsato-promo-banner__gift-desktop">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4"/><path d="M12 8V22"/><path d="M19 12V22H5V12"/><path d="M7.5 8H16.5C18.5 8 19 6.5 19 5C19 3.5 17.5 2 16 2C14.5 2 13 3.5 12 5C11 3.5 9.5 2 8 2C6.5 2 5 3.5 5 5C5 6.5 5.5 8 7.5 8Z"/></svg>
-              <span>{{ section.settings.gift_label | default: 'GIFT' }}</span>
+      <!-- RIGHT: Visual (The complete blue image with book) -->
+      <div class="matsato-promo-banner__right">
+         <div class="matsato-promo-banner__visual-container">
+            <div class="matsato-promo-banner__skew-box">
+               {%- if section.settings.blue_block_image != blank -%}
+                 <img src="{{ section.settings.blue_block_image | image_url: width: 1000 }}" 
+                      class="matsato-promo-banner__inner-img" 
+                      alt="Promo Visual" loading="lazy">
+               {%- else -%}
+                 {% comment %} Fallback if no image is uploaded {% endcomment %}
+                 <div style="width:100%; height:100%; background: #00a2ff;"></div>
+               {%- endif -%}
             </div>
-
-            <!-- The Book Image -->
-            <img src="{{ section.settings.right_image | image_url: width: 800 }}" 
-                 alt="{{ section.settings.right_image.alt | escape }}" 
-                 class="matsato-promo-banner__book-img" 
-                 loading="lazy">
-
-            <!-- Mobile Fire Overlay -->
-            {%- if section.settings.video != blank or section.settings.video_url != blank -%}
-              <div class="mobile-visual-video">
-                {%- if section.settings.video != blank -%}
-                  {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true }}
-                {%- elsif section.settings.video_url != blank -%}
-                  <iframe src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?autoplay=1&loop=1&mute=1&controls=0&playlist={{ section.settings.video_url.id }}&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                {%- endif -%}
-              </div>
-            {%- endif -%}
-          </div>
-        </div>
-      {%- endif -%}
+         </div>
+      </div>
 
     </div>
   </div>
@@ -303,20 +223,20 @@
       "id": "padding_top",
       "min": 0,
       "max": 100,
-      "step": 4,
+      "step": 1,
       "unit": "px",
       "label": "Padding Top",
-      "default": 40
+      "default": 12
     },
     {
       "type": "range",
       "id": "padding_bottom",
       "min": 0,
       "max": 100,
-      "step": 4,
+      "step": 1,
       "unit": "px",
       "label": "Padding Bottom",
-      "default": 40
+      "default": 12
     },
     {
       "type": "header",
@@ -379,13 +299,21 @@
       "type": "inline_richtext",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Special Offer"
+      "default": "Order"
     },
     {
-      "type": "inline_richtext",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Order <strong>NOW</strong> and get <strong>FREE Recipe Book!</strong>"
+      "type": "header",
+      "content": "Right Side Visual"
+    },
+    {
+      "type": "image_picker",
+      "id": "blue_block_image",
+      "label": "Complete Blue Image",
+      "info": "Upload the full image containing the blue background and the book."
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
     },
     {
       "type": "text",
@@ -397,27 +325,6 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link"
-    },
-    {
-      "type": "header",
-      "content": "Right Side Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "right_image",
-      "label": "Right Image (Product/Book)"
-    },
-    {
-      "type": "text",
-      "id": "gift_label",
-      "label": "Gift Tag Label",
-      "default": "GIFT"
-    },
-    {
-      "type": "color",
-      "id": "gift_bg_color",
-      "label": "Gift Tag Background Color",
-      "default": "#00a2ff"
     }
   ],
   "presets": [

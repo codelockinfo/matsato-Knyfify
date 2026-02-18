@@ -38,6 +38,32 @@
     row-gap: 6rem;
     margin-bottom: 0;
   }
+
+  .footer__blocks-wrapper.grid--5-col-desktop {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 50px;
+    row-gap: 4rem;
+  }
+
+  .footer__blocks-wrapper.grid--5-col-desktop .footer-block {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .footer__blocks-wrapper.grid--1-col-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .footer__blocks-wrapper.grid--1-col-mobile .footer-block {
+    width: 100%;
+    margin: 0;
+  }
 }
 
 .footer__content-bottom {
@@ -76,12 +102,12 @@
   }
 }
 
-.footer__localization:empty + .footer__column--info {
+.footer__localization:empty+.footer__column--info {
   align-items: center;
 }
 
 @media screen and (max-width: 749px) {
-  .footer__localization:empty + .footer__column {
+  .footer__localization:empty+.footer__column {
     padding-top: 1.5rem;
   }
 }
@@ -152,12 +178,15 @@
 .footer-block__heading {
   margin-bottom: 2rem;
   margin-top: 0;
-  font-size: calc(var(--font-heading-scale) * 1.6rem);
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
 }
 
 @media screen and (min-width: 990px) {
   .footer-block__heading {
-    font-size: calc(var(--font-heading-scale) * 1.8rem);
+    font-size: 1.5rem;
   }
 }
 
@@ -185,6 +214,7 @@
 }
 
 @media screen and (min-width: 750px) {
+
   /* Pushes other components to the right of the flexbox */
   .footer-block__newsletter:not(:only-child) {
     text-align: left;
@@ -203,6 +233,7 @@
   .footer__follow-on-shop {
     margin-bottom: 0.4rem;
   }
+
   /* Follow on shop is the first button but it has siblings*/
   .footer__follow-on-shop:first-child:not(:last-child) {
     justify-content: flex-start;
@@ -221,6 +252,7 @@
 }
 
 @media screen and (max-width: 749px) {
+
   /*
     On a small screen we want all the items to be centered
     because they will be stacked.
@@ -246,7 +278,7 @@
 }
 
 @media screen and (min-width: 750px) {
-  .footer-block__newsletter + .footer__list-social {
+  .footer-block__newsletter+.footer__list-social {
     margin-top: 0;
   }
 }
@@ -306,6 +338,7 @@
     opacity: 0;
     margin-top: -1rem;
   }
+
   100% {
     opacity: 1;
     margin-top: 0;
@@ -321,8 +354,8 @@
     margin-bottom: 0;
   }
 
-  .footer-block__details-content > p,
-  .footer-block__details-content > li {
+  .footer-block__details-content>p,
+  .footer-block__details-content>li {
     padding: 0;
   }
 
@@ -330,7 +363,7 @@
     display: inline;
   }
 
-  .footer-block__details-content > li:not(:last-child) {
+  .footer-block__details-content>li:not(:last-child) {
     margin-right: 1.5rem;
   }
 }
@@ -346,6 +379,7 @@
 }
 
 @media screen and (min-width: 750px) {
+
   .footer-block__details-content .list-menu__item--link:hover,
   .copyright__content a:hover {
     color: rgb(var(--color-foreground));
@@ -371,7 +405,7 @@
     font-size: 1.4rem;
   }
 
-  .footer-block__details-content > :first-child .list-menu__item--link {
+  .footer-block__details-content> :first-child .list-menu__item--link {
     padding-top: 0;
   }
 }
@@ -393,6 +427,7 @@
 }
 
 @media screen and (max-width: 749px) {
+
   .footer-block-image,
   .footer-block-image.left,
   .footer-block-image.center,
@@ -420,13 +455,13 @@
   text-align: center;
 }
 
-.footer-block:only-child > .footer-block__brand-info > .footer-block__image-wrapper {
+.footer-block:only-child>.footer-block__brand-info>.footer-block__image-wrapper {
   margin-left: auto;
   margin-right: auto;
 }
 
-.footer-block-image > img,
-.footer-block__brand-info > img {
+.footer-block-image>img,
+.footer-block__brand-info>img {
   height: auto;
 }
 
@@ -476,6 +511,7 @@
     padding: 0;
   }
 }
+
 @keyframes animateLocalization {
   0% {
     opacity: 0;
