@@ -14,6 +14,14 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "image_8GaVPy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/svgviewer-png-output.png",
+            "image_width": 400,
+            "alignment": ""
+          }
+        },
         "link_list_U49LaQ": {
           "type": "link_list",
           "settings": {
@@ -44,13 +52,14 @@
         }
       },
       "block_order": [
+        "image_8GaVPy",
         "link_list_U49LaQ",
         "link_list_JqenPQ",
         "link_list_xcDTwj",
         "text_Qkfxqd"
       ],
       "settings": {
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-150d36f0-27a7-4deb-a59a-77c385b464a3",
         "newsletter_enable": false,
         "newsletter_heading": "Subscribe to our emails",
         "enable_follow_on_shop": false,

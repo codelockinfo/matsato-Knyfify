@@ -456,10 +456,12 @@
         "padding_bottom_mobile": 20,
         "background_image": "shopify://shop_images/bg.jpg",
         "video": "shopify://files/videos/4c0a9a11c75f489b899b935583b32ac8.webm",
+        "video_url": "",
         "subheading": "",
         "heading": "Order <strong>NOW</strong> and get <strong>FREE Recipe Book!</strong>",
         "button_label": "",
         "button_link": "",
+        "right_image": "shopify://shop_images/right.png",
         "gift_label": "GIFT",
         "gift_bg_color": "#00a2ff"
       }
