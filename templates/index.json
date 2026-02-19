@@ -257,7 +257,7 @@
         "story_block_mTXYih": {
           "type": "story_block",
           "settings": {
-            "image": "shopify://shop_images/s1.avif",
+            "image": "shopify://shop_images/IMG_0696.png",
             "heading": "Techniques passed onthrough generations",
             "content": "<p>We use high quality stainless steel to craft flawless, durable and beautiful knives inspired by Centuries-old Japanese knife making traditions.</p><p>Each Matsato knife is carefully crafted using a 138-step design and goes through rigorous testing before every shipment.</p>",
             "button_label": "",
@@ -267,7 +267,7 @@
         "story_block_yLETY3": {
           "type": "story_block",
           "settings": {
-            "image": "shopify://shop_images/s2.avif",
+            "image": "shopify://shop_images/IMG_0697.jpg",
             "heading": "In love with the artof knife making",
             "content": "<p>Matsato knives were created out of passion for the art of cooking. We wanted to revolutionise the market by being the first to ever create a specialised Kitchen Knife with a unique blade.</p><p>Traditional Japanese knife making techniques combined with modern approach resulted in this fabulous Matsato santoku knife.</p>",
             "button_label": "",
@@ -277,7 +277,7 @@
         "story_block_3AFzPQ": {
           "type": "story_block",
           "settings": {
-            "image": "shopify://shop_images/s3.avif",
+            "image": "shopify://shop_images/IMG_0698.jpg",
             "heading": "Sharpness vs. Comfort- why not have it all?",
             "content": "<p>Some knives are sharp, but comes with the cost of being fragile and prone to chipping and oxidation.</p><p>We believe real kitchen chef should never have such problems. Matsato knife is extremely sturdy and sharp. Quality stainless steel and beech handle guarantees great performance.</p>",
             "button_label": "",
@@ -307,8 +307,8 @@
         "review_wRpzPt": {
           "type": "review",
           "settings": {
-            "person_image": "shopify://shop_images/slider-left-3.jpg",
-            "person_image_mobile": "shopify://shop_images/slider-left-3.jpg",
+            "person_image": "shopify://shop_images/IMG_0703_jpg.jpg",
+            "person_image_mobile": "shopify://shop_images/IMG_0703_jpg.jpg",
             "knife_image_1": "shopify://shop_images/slider-right-t-3.jpg",
             "knife_image_2": "shopify://shop_images/slider-right-b-3.jpg",
             "logo_image": "shopify://shop_images/svgviewer-png-output.png",
@@ -322,7 +322,7 @@
         "review_KVqDKa": {
           "type": "review",
           "settings": {
-            "person_image": "shopify://shop_images/slider-left.jpg",
+            "person_image": "shopify://shop_images/IMG_0700.jpg",
             "person_image_mobile": "shopify://shop_images/slider-left.jpg",
             "knife_image_1": "shopify://shop_images/slider-right-t.jpg",
             "knife_image_2": "shopify://shop_images/slider-right-b.jpg",
@@ -337,7 +337,7 @@
         "review_URhqap": {
           "type": "review",
           "settings": {
-            "person_image": "shopify://shop_images/slider-left-2.jpg",
+            "person_image": "shopify://shop_images/IMG_0704_jpg.jpg",
             "person_image_mobile": "shopify://shop_images/slider-left-2.jpg",
             "knife_image_1": "shopify://shop_images/slider-right-t-2.jpg",
             "knife_image_2": "shopify://shop_images/slider-right-b-2.jpg",
