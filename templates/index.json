@@ -47,7 +47,7 @@
         "color_scheme": "",
         "title": "Beautiful and unique Matsato knives are essential for every chef",
         "content": "<p>We designed the most exceptional chef’s kitchen knife the world has ever seen. People around the world demanded a special knife with more control and balance and we delivered.</p><p>Matsato chef’s knife features a precision, laser-carved index finger hole for superior control. The blade is composed of high quality stainless steel ensuring a sharp, quality knife for the years to come.</p>",
-        "image_1": "shopify://shop_images/m1.avif",
+        "image_1": "shopify://shop_images/IMG_0692.jpg",
         "image_2": "shopify://shop_images/m2.avif",
         "button_label": "",
         "button_link": "#order"
@@ -121,7 +121,7 @@
       "name": "Matsato Product Features",
       "settings": {
         "color_scheme": "",
-        "image": "shopify://shop_images/properties-knife.avif",
+        "image": "shopify://shop_images/IMG_0698.jpg",
         "padding_top": 56,
         "padding_bottom": 56,
         "padding_top_mobile": 56,
@@ -133,8 +133,7 @@
       "name": "Matsato Ice Hardening",
       "settings": {
         "color_scheme": "",
-        "image": "shopify://shop_images/ice-knife.jpg",
-        "background_image": "shopify://shop_images/bg1.jpg",
+        "background_image": "shopify://shop_images/IMG_0685.jpg",
         "background_overlay_opacity": 0,
         "title": "Forget Dull Knives. Get a Matsato Knife with Ice-Hardening",
         "content": "<p>Ice-hardening technology helps the blade retain its sharpness longer, reducing the need for frequent sharpening. Our professional treatment minimizes residual stresses.</p>",
@@ -149,6 +148,7 @@
       "blocks": {
         "heading_3wER6m": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "WORLD’S GREATEST PREMIUM CONTROL CHEF’S KNIFE",
             "heading_size": "h1"
@@ -156,6 +156,7 @@
         },
         "buttons_6rQTc6": {
           "type": "buttons",
+          "disabled": true,
           "settings": {
             "button_label_1": "ORDER NOW - PAY UPON DELIVERY",
             "button_link_1": "",
@@ -172,7 +173,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/banner-premium-knife.jpg",
+        "image": "shopify://shop_images/IMG_0690.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "image_behavior": "none",
