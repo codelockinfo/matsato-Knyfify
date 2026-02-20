@@ -118,6 +118,7 @@
         "feature_gTjVTY",
         "feature_GTjEAf"
       ],
+      "disabled": true,
       "name": "Matsato Product Features",
       "settings": {
         "color_scheme": "",
@@ -126,22 +127,6 @@
         "padding_bottom": 56,
         "padding_top_mobile": 56,
         "padding_bottom_mobile": 56
-      }
-    },
-    "matsato_ice_hardening_Att89J": {
-      "type": "matsato-ice-hardening",
-      "disabled": true,
-      "name": "Matsato Ice Hardening",
-      "settings": {
-        "color_scheme": "",
-        "background_image": "shopify://shop_images/IMG_0685.jpg",
-        "background_overlay_opacity": 0,
-        "title": "Forget Dull Knives. Get a Matsato Knife with Ice-Hardening",
-        "content": "<p>Ice-hardening technology helps the blade retain its sharpness longer, reducing the need for frequent sharpening. Our professional treatment minimizes residual stresses.</p>",
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48
       }
     },
     "image_banner_Xn3mRg": {
@@ -171,6 +156,65 @@
       "block_order": [
         "heading_3wER6m",
         "buttons_6rQTc6"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/IMG_0677.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-2",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "matsato_ice_hardening_Att89J": {
+      "type": "matsato-ice-hardening",
+      "disabled": true,
+      "name": "Matsato Ice Hardening",
+      "settings": {
+        "color_scheme": "",
+        "background_image": "shopify://shop_images/IMG_0685.jpg",
+        "background_overlay_opacity": 0,
+        "title": "Forget Dull Knives. Get a Matsato Knife with Ice-Hardening",
+        "content": "<p>Ice-hardening technology helps the blade retain its sharpness longer, reducing the need for frequent sharpening. Our professional treatment minimizes residual stresses.</p>",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
+    "image_banner_7QrphE": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_gEXQYq": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "WORLD’S GREATEST PREMIUM CONTROL CHEF’S KNIFE",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_tkhtT9": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "ORDER NOW - PAY UPON DELIVERY",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_gEXQYq",
+        "buttons_tkhtT9"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
@@ -551,8 +595,9 @@
     "matsato_intro",
     "matsato_sticky_banner_CmNHxg",
     "matsato_product_features_WFn6QR",
-    "matsato_ice_hardening_Att89J",
     "image_banner_Xn3mRg",
+    "matsato_ice_hardening_Att89J",
+    "image_banner_7QrphE",
     "image_banner_j7r7zX",
     "video_HzKQXU",
     "matsato_exclusive_perks_fNg8dw",
