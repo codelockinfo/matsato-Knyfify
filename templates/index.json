@@ -435,30 +435,33 @@
           "type": "review",
           "settings": {
             "customer_name": "Isaac Tramyer Seyer",
+            "customer_profile_image": "shopify://shop_images/user_1.png",
             "show_verified": true,
             "rating": 5,
             "description": "<p>Their knives are high quality and really good for chopping. The knife is very sharp and the price is acceptable. Their delivery time was good also. Definitely recommend them.</p>",
-            "review_image": "shopify://shop_images/r-1.jpg"
+            "review_image": "shopify://shop_images/IMG_0704_2_jpg.jpg"
           }
         },
         "review_fMPqhQ": {
           "type": "review",
           "settings": {
             "customer_name": "Brian Andrew",
+            "customer_profile_image": "shopify://shop_images/user_1.png",
             "show_verified": true,
             "rating": 5,
             "description": "<p>They got the best quality for kitchen knifes. Cooking now is way more fun and easier. The prices are very good and the shipping is fast. I recommend them</p>",
-            "review_image": "shopify://shop_images/r-5.jpg"
+            "review_image": "shopify://shop_images/IMG_0703_3_jpg.jpg"
           }
         },
         "review_cTUztU": {
           "type": "review",
           "settings": {
             "customer_name": "Rtime Line",
+            "customer_profile_image": "shopify://shop_images/user_1.png",
             "show_verified": true,
             "rating": 5,
             "description": "<p>This a great product, the design is very ergonimic, a good knife in your hand feels strong and robust. It promotes good grip and rests in your palm securely. It is light enough to cut the vegetables and heavy enough for meat. It has a good weight. Craftmaship and design is superb very much recomended.</p>",
-            "review_image": "shopify://shop_images/r-2.jpg"
+            "review_image": "shopify://shop_images/IMG_0703_2_jpg.jpg"
           }
         },
         "review_YywKmt": {
