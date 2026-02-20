@@ -70,6 +70,21 @@
         "button_link": ""
       }
     },
+    "matsato_custom_banner_rGtjfq": {
+      "type": "matsato-custom-banner",
+      "name": "Matsato Custom Banner",
+      "settings": {
+        "color_scheme": "",
+        "overlay_opacity": 30,
+        "banner_height_desktop": 600,
+        "banner_height_mobile": 450,
+        "heading": "",
+        "subheading": "",
+        "content_alignment": "center",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
     "matsato_product_features_WFn6QR": {
       "type": "matsato-product-features",
       "blocks": {
@@ -506,6 +521,7 @@
     "matsato_sticky_banner_V94Emt",
     "matsato_intro",
     "matsato_sticky_banner_CmNHxg",
+    "matsato_custom_banner_rGtjfq",
     "matsato_product_features_WFn6QR",
     "matsato_ice_hardening_Att89J",
     "image_banner_Xn3mRg",
