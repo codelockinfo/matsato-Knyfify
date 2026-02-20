@@ -411,6 +411,23 @@
         "padding_bottom": 0
       }
     },
+    "matsato_custom_banner_wm83Hg": {
+      "type": "matsato-custom-banner",
+      "name": "Matsato Custom Banner",
+      "settings": {
+        "color_scheme": "",
+        "image_desktop": "shopify://shop_images/IMG_0679.jpg",
+        "image_mobile": "shopify://shop_images/IMG_0689.jpg",
+        "overlay_opacity": 30,
+        "banner_height_desktop": 600,
+        "banner_height_mobile": 450,
+        "heading": "",
+        "subheading": "",
+        "content_alignment": "center",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
     "matsato_reviews_WJGnNJ": {
       "type": "matsato-reviews",
       "blocks": {
@@ -562,6 +579,7 @@
     "matsato_exclusive_perks_fNg8dw",
     "matsato_brand_story_fFM4qr",
     "matsato_review_slider_6hdEmr",
+    "matsato_custom_banner_wm83Hg",
     "matsato_reviews_WJGnNJ",
     "matsato_promo_banner_z3FTTP",
     "rich_text_m4xcHH"
