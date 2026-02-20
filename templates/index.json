@@ -166,7 +166,7 @@
       "settings": {
         "collection": "all",
         "products_to_show": 10,
-        "title": "Featured collection",
+        "title": "",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -217,7 +217,6 @@
         "heading_3wER6m",
         "buttons_6rQTc6"
       ],
-      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/IMG_0690.jpg",
