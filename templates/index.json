@@ -468,30 +468,33 @@
           "type": "review",
           "settings": {
             "customer_name": "David Delgado",
+            "customer_profile_image": "shopify://shop_images/user_1.png",
             "show_verified": true,
             "rating": 5,
             "description": "<p>good products from this store, the best I have bought, I was satisfied with the purchase, in addition to their excellent price they also have fast shipping</p>",
-            "review_image": "shopify://shop_images/r-3.jpg"
+            "review_image": "shopify://shop_images/IMG_0705_3_jpg.jpg"
           }
         },
         "review_UWxXex": {
           "type": "review",
           "settings": {
             "customer_name": "Jorge Viera",
+            "customer_profile_image": "shopify://shop_images/user_1.png",
             "show_verified": true,
             "rating": 5,
             "description": "<p>excellent product, it works wonderfully, I recommend it, I have a few in my house and I love them!</p>",
-            "review_image": "shopify://shop_images/r-4.jpg"
+            "review_image": "shopify://shop_images/IMG_0703_jpg.jpg"
           }
         },
         "review_aidtrN": {
           "type": "review",
           "settings": {
             "customer_name": "Avery Navin",
+            "customer_profile_image": "shopify://shop_images/user_1.png",
             "show_verified": true,
             "rating": 5,
             "description": "<p>A product of excellent quality, it was the best gift I could give, my father was so happy with it. the page to buy was just as easy and with a fast shipping</p>",
-            "review_image": "shopify://shop_images/r-6.jpg"
+            "review_image": "shopify://shop_images/IMG_0705_2_jpg.jpg"
           }
         }
       },
