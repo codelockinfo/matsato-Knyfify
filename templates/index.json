@@ -75,6 +75,8 @@
       "name": "Matsato Custom Banner",
       "settings": {
         "color_scheme": "",
+        "image_desktop": "shopify://shop_images/IMG_0671.jpg",
+        "image_mobile": "shopify://shop_images/IMG_0670.jpg",
         "overlay_opacity": 30,
         "banner_height_desktop": 600,
         "banner_height_mobile": 450,
