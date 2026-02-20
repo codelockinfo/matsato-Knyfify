@@ -130,6 +130,7 @@
     },
     "matsato_ice_hardening_Att89J": {
       "type": "matsato-ice-hardening",
+      "disabled": true,
       "name": "Matsato Ice Hardening",
       "settings": {
         "color_scheme": "",
@@ -170,6 +171,49 @@
       "block_order": [
         "heading_3wER6m",
         "buttons_6rQTc6"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/IMG_0686.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-2",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "image_banner_j7r7zX": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_txQamV": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "WORLD’S GREATEST PREMIUM CONTROL CHEF’S KNIFE",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_pbYAVr": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "ORDER NOW - PAY UPON DELIVERY",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_txQamV",
+        "buttons_pbYAVr"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
@@ -509,6 +553,7 @@
     "matsato_product_features_WFn6QR",
     "matsato_ice_hardening_Att89J",
     "image_banner_Xn3mRg",
+    "image_banner_j7r7zX",
     "video_HzKQXU",
     "matsato_exclusive_perks_fNg8dw",
     "matsato_brand_story_fFM4qr",
