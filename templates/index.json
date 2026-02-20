@@ -131,32 +131,6 @@
     },
     "image_banner_Xn3mRg": {
       "type": "image-banner",
-      "blocks": {
-        "heading_3wER6m": {
-          "type": "heading",
-          "disabled": true,
-          "settings": {
-            "heading": "WORLD’S GREATEST PREMIUM CONTROL CHEF’S KNIFE",
-            "heading_size": "h1"
-          }
-        },
-        "buttons_6rQTc6": {
-          "type": "buttons",
-          "disabled": true,
-          "settings": {
-            "button_label_1": "ORDER NOW - PAY UPON DELIVERY",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_3wER6m",
-        "buttons_6rQTc6"
-      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/IMG_0677.jpg",
@@ -190,32 +164,6 @@
     },
     "image_banner_7QrphE": {
       "type": "image-banner",
-      "blocks": {
-        "heading_gEXQYq": {
-          "type": "heading",
-          "disabled": true,
-          "settings": {
-            "heading": "WORLD’S GREATEST PREMIUM CONTROL CHEF’S KNIFE",
-            "heading_size": "h1"
-          }
-        },
-        "buttons_tkhtT9": {
-          "type": "buttons",
-          "disabled": true,
-          "settings": {
-            "button_label_1": "ORDER NOW - PAY UPON DELIVERY",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_gEXQYq",
-        "buttons_tkhtT9"
-      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/IMG_0686.jpg",
