@@ -188,6 +188,7 @@
         "heading_3wER6m",
         "buttons_6rQTc6"
       ],
+      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/IMG_0690.jpg",
