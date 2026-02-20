@@ -525,11 +525,10 @@
         "padding_bottom": 0,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
-        "background_image": "shopify://shop_images/bg.jpg",
+        "background_image": "shopify://shop_images/Screenshot_38_1.png",
         "video": "shopify://files/videos/4c0a9a11c75f489b899b935583b32ac8.webm",
         "video_url": "",
         "subheading": "",
-        "blue_block_image": "shopify://shop_images/right.png",
         "button_label": "",
         "button_link": ""
       }
