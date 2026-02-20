@@ -160,6 +160,35 @@
         "padding_bottom_mobile": 48
       }
     },
+    "featured_collection_WU9KEq": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 10,
+        "title": "Featured collection",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-3",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "image_banner_Xn3mRg": {
       "type": "image-banner",
       "blocks": {
@@ -527,6 +556,7 @@
     "matsato_custom_banner_rGtjfq",
     "matsato_product_features_WFn6QR",
     "matsato_ice_hardening_Att89J",
+    "featured_collection_WU9KEq",
     "image_banner_Xn3mRg",
     "video_HzKQXU",
     "matsato_exclusive_perks_fNg8dw",
