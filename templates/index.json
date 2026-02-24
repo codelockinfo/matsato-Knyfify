@@ -359,7 +359,7 @@
             "knife_image_2": "shopify://shop_images/IMG_0705_2_jpg.jpg",
             "logo_image": "shopify://shop_images/IMG-20260223-WA0032-removebg-preview.png",
             "rating": 5,
-            "description": "<p>I found it aesthetically pleasing and extremely durable. The blade has a good curve, allowing you to rest your middle finger on it comfortably. Chopping all manner of vegetables and meat was easy. If you're looking for a reasonably priced chef's knife get Matsato Japan.</p>",
+            "description": "<p>I found it aesthetically pleasing and extremely durable. The blade has a good curve, allowing you to rest your middle finger on it comfortably. Chopping all manner of vegetables and meat was easy. If you're looking for a reasonably priced chef's knife get Knyfify Japan.</p>",
             "author_name": "Bernard Descoteaux, Head Chef",
             "sponsored_text": "* Sponsored partnership:",
             "sponsored_hover_content": "<p>Matsato partners with professional chefs to test and review our products. This review reflects the genuine professional opinion of the chef after testing our equipment in a professional kitchen environment.</p>"
@@ -383,7 +383,6 @@
           "type": "review",
           "settings": {
             "person_image": "shopify://shop_images/IMG_0704_jpg.jpg",
-            "person_image_mobile": "shopify://shop_images/slider-left-2.jpg",
             "knife_image_1": "shopify://shop_images/IMG_0704_2_jpg.jpg",
             "knife_image_2": "shopify://shop_images/IMG_0705_3_jpg.jpg",
             "logo_image": "shopify://shop_images/IMG-20260223-WA0032-removebg-preview.png",
